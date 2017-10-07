@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'remote-redux-devtools'
 
+import popularphotos from '../components/PopularPhotos/reducer'
 import user from '../components/UserInfo/reducer'
 import userfeed from '../components/UserFeed/reducer'
 
@@ -11,6 +12,7 @@ let store
 export const setupStore = () => {
   if (!store) {
     const rootReducer = combineReducers({
+      popularphotos,
       user,
       userfeed
     })

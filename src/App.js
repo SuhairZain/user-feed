@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Platform, StyleSheet, View } from 'react-native'
+import { Platform, ScrollView, StyleSheet, View } from 'react-native'
 
 import { Provider } from 'react-redux'
 
@@ -7,15 +7,19 @@ import { setupStore } from './redux'
 
 import UserInfo from './components/UserInfo'
 import UserFeed from './components/UserFeed'
+import PopularPhotos from './components/PopularPhotos'
 
 export default class UserInfoApp extends PureComponent {
   render() {
     return (
       <Provider store={setupStore()}>
-        <View style={styles.container}>
-          <UserInfo />
-          <UserFeed />
-        </View>
+        <ScrollView>
+          <View style={styles.container}>
+            <UserInfo />
+            <UserFeed />
+            <PopularPhotos />
+          </View>
+        </ScrollView>
       </Provider>
     )
   }
