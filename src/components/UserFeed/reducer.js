@@ -7,7 +7,7 @@ const initialState = {
   loaded: false,
   error: undefined,
   sliderIndex: 0,
-  data: repeat({ uri: FETCHING_DATA }, 6)
+  data: repeat({ thumbnail: FETCHING_DATA }, 6)
 }
 
 const FETCH_USER_FEED_SUCCESS = 'FETCH_USER_FEED_SUCCESS'

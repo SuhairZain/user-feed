@@ -6,7 +6,7 @@ import { popularPhotos } from '../../api'
 const initialState = {
   loaded: false,
   error: undefined,
-  data: repeat({ uri: FETCHING_DATA }, 6)
+  data: repeat({ thumbnail: FETCHING_DATA }, 6)
 }
 
 const FETCH_POPULAR_FEED_SUCCESS = 'FETCH_POPULAR_FEED_SUCCESS'

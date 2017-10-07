@@ -5,6 +5,7 @@ import { Dimensions, FlatList, StyleSheet, View } from 'react-native'
 import { connect } from 'react-redux'
 
 import { getPopularFeed } from './reducer'
+import { getImageUris } from './selector'
 
 import Image from '../common/Image'
 
@@ -62,9 +63,8 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => {
-  const { data } = state.popularphotos
   return {
-    feed: data
+    feed: getImageUris(state)
   }
 }
 

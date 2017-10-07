@@ -8,6 +8,7 @@ import Carousel from 'react-native-snap-carousel'
 
 import { repeat } from '../../utils/arrays'
 import { getUserFeed, feedSliderIndexChanged } from './reducer'
+import { getImageUris } from './selector'
 
 import Image from '../common/Image'
 import Dot from './Dot'
@@ -77,10 +78,9 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => {
-  const { data, sliderIndex } = state.userfeed
   return {
-    currentIndex: sliderIndex,
-    feed: data
+    currentIndex: state.userfeed.sliderIndex,
+    feed: getImageUris(state)
   }
 }
 
