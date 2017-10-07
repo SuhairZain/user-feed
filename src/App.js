@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-export default class UserInfo extends PureComponent {
+export default class UserInfoApp extends PureComponent {
   render() {
     return (
       <View style={styles.container}>
