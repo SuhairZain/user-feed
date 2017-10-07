@@ -1,21 +1,14 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'remote-redux-devtools'
 
-import popularphotos from '../components/PopularPhotos/reducer'
-import user from '../components/UserInfo/reducer'
-import userfeed from '../components/UserFeed/reducer'
+import rootReducer from './rootReducer'
 
 let store
 
 /* Would help us set up the store with initial values if the future if needed */
 export const setupStore = () => {
   if (!store) {
-    const rootReducer = combineReducers({
-      popularphotos,
-      user,
-      userfeed
-    })
     store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(thunk)))
   }
   return store
