@@ -6,7 +6,7 @@
     "run:android": "react-native run-android",
     "run:ios": "react-native run-ios",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "mocha __tests__ --require babel-register"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -16,12 +16,12 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
-    "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
+    "babel-register": "^6.26.0",
     "eslint": "^4.8.0",
     "eslint-config-react": "^1.1.7",
     "eslint-config-recommended": "^1.5.0",
-    "jest": "21.2.1",
+    "mocha": "^4.0.1",
     "prop-types": "^15.6.0",
     "react-redux": "^5.0.6",
     "react-test-renderer": "16.0.0-alpha.12",
@@ -29,8 +29,5 @@
     "redux-thunk": "^2.2.0",
     "remote-redux-devtools": "^0.5.12",
     "reselect": "^3.0.1"
-  },
-  "jest": {
-    "preset": "react-native"
   }
 }
