@@ -1,6 +1,7 @@
 import { FETCHING_DATA } from '../../utils/constants'
 
 import { repeat } from '../../utils/arrays'
+import { popularPhotos } from '../../api'
 
 const initialState = {
   loaded: false,
@@ -15,10 +16,9 @@ const fetchPopularFeedSuccess = images => ({
 })
 
 export const getPopularFeed = () => {
-  return (dispatch, getState) => {
-    setTimeout(() => {
-      dispatch(fetchPopularFeedSuccess(repeat({ uri: 'https://i.ytimg.com/vi/sr_vL2anfXA/maxresdefault.jpg' }, 9)))
-    }, 3000)
+  return async (dispatch, getState) => {
+    const result = await popularPhotos()
+    dispatch(fetchPopularFeedSuccess(result.data.result.posts))
   }
 }
 

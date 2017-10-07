@@ -1,6 +1,7 @@
 import { FETCHING_DATA } from '../../utils/constants'
 
 import { repeat } from '../../utils/arrays'
+import { userFeed } from '../../api'
 
 const initialState = {
   loaded: false,
@@ -22,10 +23,9 @@ export const feedSliderIndexChanged = index => ({
 })
 
 export const getUserFeed = () => {
-  return (dispatch, getState) => {
-    setTimeout(() => {
-      dispatch(fetchUserFeedSuccess(repeat({ uri: 'https://i.ytimg.com/vi/sr_vL2anfXA/maxresdefault.jpg' }, 4)))
-    }, 3000)
+  return async (dispatch, getState) => {
+    const result = await userFeed()
+    dispatch(fetchUserFeedSuccess(result.data.result.posts))
   }
 }
 

@@ -1,5 +1,7 @@
 import { FETCHING_DATA } from '../../utils/constants'
 
+import { user } from '../../api'
+
 const initialState = {
   loaded: false,
   error: undefined,
@@ -17,17 +19,9 @@ const fetchUserDetailsSuccess = user => ({
 })
 
 export const getUserDetails = () => {
-  return (dispatch, getState) => {
-    setTimeout(() => {
-      dispatch(
-        fetchUserDetailsSuccess({
-          bio:
-            'This is a long bio which is supposed to be split into multiple lines and also to be made sure that it doesnt go above threee lines',
-          name: 'Suhair Zain',
-          profileThumbnail: 'https://i.ytimg.com/vi/sr_vL2anfXA/maxresdefault.jpg'
-        })
-      )
-    }, 2000)
+  return async (dispatch, getState) => {
+    const result = await user()
+    dispatch(fetchUserDetailsSuccess(result.data))
   }
 }
 
