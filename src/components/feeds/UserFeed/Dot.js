@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Animated, StyleSheet, TouchableOpacity } from 'react-native'
 
-import { DarkGray, Gray } from '../../colors'
+import { DarkGray, Gray } from '../../../colors'
 
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity)
 

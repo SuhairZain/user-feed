@@ -6,11 +6,11 @@ import { connect } from 'react-redux'
 
 import Carousel from 'react-native-snap-carousel'
 
-import { repeat } from '../../utils/arrays'
-import { getUserFeed, feedSliderIndexChanged } from './reducer'
-import { getImageUris } from './selector'
+import { repeat } from '../../../utils/arrays'
+import { fetchUserFeed } from '../reducer'
+import { getUserFeed } from '../selector'
 
-import Image from '../common/Image'
+import Image from '../../common/Image'
 import Dot from './Dot'
 
 const sliderSize = Dimensions.get('screen').width
@@ -18,16 +18,19 @@ const sliderSize = Dimensions.get('screen').width
 class UserFeed extends PureComponent {
   static propTypes = {
     feed: PropTypes.array.isRequired,
-    currentIndex: PropTypes.number.isRequired,
     dispatch: PropTypes.func.isRequired
   }
 
+  state = {
+    currentIndex: 0
+  }
+
   componentDidMount() {
-    this.props.dispatch(getUserFeed())
+    this.props.dispatch(fetchUserFeed())
   }
 
   onSnapToItem = index => {
-    this.props.dispatch(feedSliderIndexChanged(index))
+    this.setState({ currentIndex: index })
   }
 
   onPressDot = index => {
@@ -37,7 +40,8 @@ class UserFeed extends PureComponent {
   renderItem = ({ item, index }) => <Image source={item} style={styles.image} />
 
   render() {
-    const { feed, currentIndex } = this.props
+    const { feed } = this.props
+    const { currentIndex } = this.state
     return (
       <View style={styles.container}>
         <Carousel
@@ -79,8 +83,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    currentIndex: state.userfeed.sliderIndex,
-    feed: getImageUris(state)
+    feed: getUserFeed(state)
   }
 }
 

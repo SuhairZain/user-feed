@@ -6,8 +6,8 @@ import { Provider } from 'react-redux'
 import { setupStore } from './redux'
 
 import UserInfo from './components/UserInfo'
-import UserFeed from './components/UserFeed'
-import PopularPhotos from './components/PopularPhotos'
+import UserFeed from './components/feeds/UserFeed'
+import PopularPhotos from './components/feeds/PopularPhotos'
 
 export default class UserInfoApp extends PureComponent {
   render() {

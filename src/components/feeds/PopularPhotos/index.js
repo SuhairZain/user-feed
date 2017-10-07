@@ -4,10 +4,10 @@ import { Dimensions, FlatList, StyleSheet, View } from 'react-native'
 
 import { connect } from 'react-redux'
 
-import { getPopularFeed } from './reducer'
-import { getImageUris } from './selector'
+import { fetchPopularFeed } from '../reducer'
+import { getPopularFeed } from '../selector'
 
-import Image from '../common/Image'
+import Image from '../../common/Image'
 
 class PopularPhotos extends PureComponent {
   static propTypes = {
@@ -16,7 +16,7 @@ class PopularPhotos extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.dispatch(getPopularFeed())
+    this.props.dispatch(fetchPopularFeed())
   }
 
   keyExtractor = (item, index) => index
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    feed: getImageUris(state)
+    feed: getPopularFeed(state)
   }
 }
 
