@@ -1,0 +1,3 @@
+rootProject.name = 'UserInfo'
+
+include ':app'
