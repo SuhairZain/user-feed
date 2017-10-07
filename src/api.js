@@ -11,6 +11,17 @@ axios.defaults.data = {
   _SessionToken: TOKEN
 }
 
+axios.interceptors.request.use(
+  function(config) {
+    // Do something before request is sent
+    return config
+  },
+  function(error) {
+    // Do something with request error
+    return Promise.reject(error)
+  }
+)
+
 const USER_BODY = { _method: 'GET' }
 export const user = () => {
   return axios.post(`${API_URL}/1/classes/User/318381`, USER_BODY)
@@ -18,7 +29,7 @@ export const user = () => {
 
 const USER_FEED_BODY = { isThumbnailsOnly: true, limit: 5, userId: 2707798, _method: 'POST' }
 export const userFeed = () => {
-  return axios.post(`${STAGING_API_URL}/1/functions/feed/profile/load-batch`, USER_FEED_BODY)
+  return axios.post(`${API_URL}/1/functions/feed/profile/load-batch`, USER_FEED_BODY)
 }
 
 const POPULAR_PHOTOS_BODY = { isThumbnailsOnly: true, limit: 18, _method: 'POST' }
