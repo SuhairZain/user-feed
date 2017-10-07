@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'remote-redux-devtools'
 
 import user from '../components/UserInfo/reducer'
+import userfeed from '../components/UserFeed/reducer'
 
 let store
 
@@ -10,7 +11,8 @@ let store
 export const setupStore = () => {
   if (!store) {
     const rootReducer = combineReducers({
-      user
+      user,
+      userfeed
     })
     store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(thunk)))
   }

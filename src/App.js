@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { setupStore } from './redux'
 
 import UserInfo from './components/UserInfo'
+import UserFeed from './components/UserFeed'
 
 export default class UserInfoApp extends PureComponent {
   render() {
@@ -13,6 +14,7 @@ export default class UserInfoApp extends PureComponent {
       <Provider store={setupStore()}>
         <View style={styles.container}>
           <UserInfo />
+          <UserFeed />
         </View>
       </Provider>
     )
