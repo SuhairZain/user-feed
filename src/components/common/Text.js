@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { StyleSheet, Text, TextProperties, View } from 'react-native'
 
 import { repeat } from '../../utils/arrays'
-import { FETCHING_DATA, PLACEHOLDER_TEXT } from '../../constants'
+import { FETCHING_DATA, PLACEHOLDER_TEXT } from '../../utils/constants'
 
 import { Black, PLACEHOLDER } from '../../colors'
 

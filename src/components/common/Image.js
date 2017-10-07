@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { StyleSheet, Image, ImageProperties, View } from 'react-native'
 
-import { FETCHING_DATA } from '../../constants'
+import { FETCHING_DATA } from '../../utils/constants'
 
 import { PLACEHOLDER } from '../../colors'
 
